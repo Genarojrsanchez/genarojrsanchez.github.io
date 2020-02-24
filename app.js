@@ -18,20 +18,30 @@ $.ajax({
   }).then(
     (data)=>{
       // const arr = [];
-      // const theData = Object.entries(data)
+      // const theData = Object.entries(data).eq(arr)
 
       // console.log(theData)
-      // for(i = 0; i <= theData.length; i++){
-      //   console.table(theData[i]);
+      for(i = 0; i <= theData.length; i++){
+        console.table(theData[i]);
           console.log(data)
-        $('#name').html(data.name);
-        $('#life_span').html(data[10].life_span);
-        $('#temperment').html(data[10].temperament);
+        $("#name").html(data.eq().name);
+        $("#life_span").html(data[10].life_span);
+        $("#temperment").html(data[10].temperament);
 
-    // }
+    }
   },
     (error)=>{
       console.log('bad request');
     }
   );
 })
+
+let imgIndex = 0;
+
+  $(".next").on("click", () => {
+    const $img= $(".carousel-images").children().eq(imgIndex)
+    $img.css("display","none")
+    imgIndex ++
+    const $img2=$(".carousel-images").children().eq(imgIndex)
+    $img.css("display","block")
+  })
