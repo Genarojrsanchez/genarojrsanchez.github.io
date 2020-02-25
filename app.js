@@ -43,5 +43,5 @@ let imgIndex = 0;
     $img.css("display","none")
     imgIndex ++
     const $img2=$(".carousel-images").children().eq(imgIndex)
-    $img.css("display","block")
-  })
+    $img2.css("display","block")
+  });

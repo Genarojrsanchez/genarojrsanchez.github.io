@@ -16,15 +16,13 @@
   border-radius: 10px;
   display: none;
  }
+ .carousel-images img:first-of-type {
+   display: block;
+ }
 .carousel-button {
   align-self: center;
   background: red;
   padding: 10px;
   border-radius: 50%;
   text-align: center;
-  box-shadow: 1px 1px #fa8d8e;
-}
-
-.carousel-images img:first-of-type {
-  display: block;
 }
