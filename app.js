@@ -5,12 +5,12 @@
 //
 //   console.log(loop);
 // }
-// console.log(arr);
-$("form").on("submit", (event) => {
-
-  // add a const of the input of users
-  const userInput = $("input[type='text']");
-  event.preventDefault();
+// // console.log(arr);
+// $("form").on("submit", (event) => {
+//
+//   // add a const of the input of users
+//   const userInput = $("input[type='text']");
+//   event.preventDefault();
   // console.log(userInput)
 
 $.ajax({
@@ -21,10 +21,10 @@ $.ajax({
       // const theData = Object.entries(data).eq(arr)
 
       // console.log(theData)
-      for(i = 0; i <= theData.length; i++){
-        console.table(theData[i]);
+      for(i = 0; i <= data.length; i++){
+        // console.table(data[i]);
           console.log(data)
-        $("#name").html(data.eq().name);
+        $("#name").html(data[10].name);
         $("#life_span").html(data[10].life_span);
         $("#temperment").html(data[10].temperament);
 
@@ -34,7 +34,7 @@ $.ajax({
       console.log('bad request');
     }
   );
-})
+
 
 let imgIndex = 0;
 
