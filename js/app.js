@@ -1,31 +1,16 @@
 
-
-// const theData = data.length;
-// const theData = () => {
-//
-//   console.log(loop);
-// }
-// // console.log(arr);
-// $("form").on("submit", (event) => {
-//
-//   // add a const of the input of users
-//   const userInput = $("input[type='text']");
-//   event.preventDefault();
-// console.log(userInput)
 let catsData = [];
+let imgIndex = 0;
+let circleImg = 10;
 
 $.ajax({
   url:"https://api.thecatapi.com/v1/breeds?x-api-key=0725609f-987c-4a8e-9d77-5f4d41e631ee"
 }).then(
   (data)=>{
     catsData = data;
-
     if (data.length > 0){
       updatedLabels(data[0]);
     }
-    // const arr = [];
-    // const theData = Object.entries(data).eq(arr)
-    // console.log(theData)
   },
   (error)=>{
     console.log("bad request");
@@ -33,14 +18,10 @@ $.ajax({
 );
 updatedLabels = (cat) => {
   console.log(cat);
-  $("#name").html(cat.name);
+  $("#name").html(cat.name).val();
   $("#life_span").html(cat.life_span);
   $("#temperment").html(cat.temperament);
-
 }
-
-let imgIndex = 0;
-let circleImg = 67;
 
 $(".next").on("click", () => {
   const $img= $(".carousel-images").children().eq(imgIndex)
@@ -51,7 +32,7 @@ $(".next").on("click", () => {
   }
   const $img2=$(".carousel-images").children().eq(imgIndex)
   $img2.css("display","block")
-updatedLabels(catsData[imgIndex]);
+  updatedLabels(catsData[imgIndex]);
 
 });
 $(".previous").on("click", () => {
@@ -61,13 +42,13 @@ $(".previous").on("click", () => {
   if (imgIndex < 0){
     imgIndex = circleImg;
   }
-  const $img2=$(".carousel-images").children().eq(imgIndex)
+  const $img2= $(".carousel-images").children().eq(imgIndex)
   $img2.css("display","block")
 
   updatedLabels(catsData[imgIndex]);
 });
 
-findCat = () => {
+const findCat = () => {
   let catName = $("#catNameInput").val()
-  console.log("looking for cat with name " + catName);
+  alert("Remind me to find the API that has the " + catName + " cat!");
 }
